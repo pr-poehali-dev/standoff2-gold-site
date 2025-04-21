@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,11 +9,18 @@ import { Lock, Mail, ShieldAlert } from "lucide-react";
 const StandoffLoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Обработка формы будет добавлена здесь
-    console.log("Форма отправлена", { email, password });
+    setIsLoading(true);
+    
+    // Имитация отправки данных
+    setTimeout(() => {
+      setIsLoading(false);
+      navigate("/verification");
+    }, 1000);
   };
 
   return (
@@ -69,8 +77,9 @@ const StandoffLoginForm = () => {
         <Button 
           className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all"
           onClick={handleSubmit}
+          disabled={isLoading}
         >
-          Получить голду
+          {isLoading ? "Обработка..." : "Получить голду"}
         </Button>
       </CardFooter>
     </Card>
