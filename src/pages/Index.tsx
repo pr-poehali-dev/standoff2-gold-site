@@ -1,9 +1,8 @@
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import StandoffHeader from "@/components/StandoffHeader";
 import ProductCard from "@/components/ProductCard";
-import StandoffLoginForm from "@/components/StandoffLoginForm";
 
 const goldProducts = [
   { id: 1, amount: 100, price: 0, image: "/placeholder.svg" },
@@ -34,13 +33,6 @@ const Index = () => {
               image={product.image}
             />
           ))}
-        </section>
-        
-        <section className="mb-16">
-          <div className="max-w-md mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-center">Войдите в аккаунт</h2>
-            <StandoffLoginForm />
-          </div>
         </section>
         
         <section className="bg-black/20 rounded-lg p-6 mb-12 backdrop-blur-sm">

@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShoppingCart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   amount: number;
@@ -10,6 +11,12 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ amount, price, image }: ProductCardProps) => {
+  const navigate = useNavigate();
+  
+  const handleGetGold = () => {
+    navigate('/account-details', { state: { goldAmount: amount } });
+  };
+
   return (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-black/30 backdrop-blur-sm border-purple-500/30 hover:border-purple-500/70">
       <div className="relative pb-[60%] bg-gradient-to-br from-purple-600/20 to-blue-600/20">
@@ -37,7 +44,10 @@ const ProductCard = ({ amount, price, image }: ProductCardProps) => {
       </CardContent>
       
       <CardFooter className="pt-0 pb-4">
-        <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all">
+        <Button 
+          className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all"
+          onClick={handleGetGold}
+        >
           <ShoppingCart className="w-4 h-4 mr-2" />
           Получить сейчас
         </Button>
