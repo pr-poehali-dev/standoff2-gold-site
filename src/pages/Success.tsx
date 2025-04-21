@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { Check, Download } from "lucide-react";
+import { Check, Download, Clock } from "lucide-react";
 import StandoffHeader from "@/components/StandoffHeader";
 
 const Success = () => {
@@ -49,6 +49,16 @@ const Success = () => {
                 <Download className="mr-2 h-4 w-4" /> Сохранить чек
               </Button>
             </CardFooter>
+          </Card>
+          
+          {/* Предупреждение о времени зачисления */}
+          <Card className="bg-amber-500/20 backdrop-blur-sm border-amber-500/30 mb-8">
+            <CardContent className="py-4 flex items-center gap-3">
+              <Clock className="h-6 w-6 text-amber-400 flex-shrink-0" />
+              <p className="text-amber-200 text-sm md:text-base">
+                <span className="font-bold">Важно:</span> Голда будет зачислена на ваш аккаунт в течение 10 минут. Пожалуйста, не выходите из аккаунта в это время.
+              </p>
+            </CardContent>
           </Card>
           
           <div className="space-y-4">
